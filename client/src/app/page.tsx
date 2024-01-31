@@ -1,19 +1,35 @@
-import React, { useRef, useState } from 'react';
 
-import { getHeaderData } from "@/api/get-header-data";
-import Image from "next/image";
-import { Slider } from '@/components/Slider';
+import qs from 'qs'
 import { Button } from '@/components/ui/button';
 import { PlayCircle, Plus } from 'lucide-react';
 import { NewsHighlight } from '@/components/NewsHighlight';
+import { getPagesData } from '@/api/get-pages-data';
 
 export default async function Home() {
+  const query = qs.stringify({
+    populate: {
+      highlight_zone: {
+        populate: {
+          post: {
+            populate: {
+              image: {
+                populate: true
+              }
+            }
+          },
+        }
+      }
+    }
+  })
+
+  const pageData = await getPagesData({ query: query })
+  const highlightZoneAttributes = pageData?.data.find(res => res.attributes.title === "Home Page")
 
   return (
     <main className="h-full w-full">
       <div className='bg-neutral-20  pt-10 pb-20 '>
         <div className='w-full max-w-[1280px] mx-auto flex flex-col items-center justify-center'>
-          <NewsHighlight />
+          {highlightZoneAttributes && <NewsHighlight data={highlightZoneAttributes?.attributes} />}
           <Button variant={'ghost'} className='flex items-center border-2 border-blue-default rounded-full mt-8 w-[272px] h-14 text-blue-default'>
             <span>MAIS NOTÍCIAS </span><Plus className='mb-1' />
           </Button>

@@ -1,64 +1,37 @@
-'use client'
 import Image from "next/image";
-
 import { motion } from 'framer-motion'
-export function NewsHighlight() {
+import { PostHighlight } from "../Post/PostHighlight";
+import qs from 'qs'
+import { getPagesData } from "@/api/get-pages-data";
+import { AttributesHighlightType } from "@/types/get-page-data-types";
 
+interface NewsHighlightProps {
+    data?: AttributesHighlightType
+}
+export async function NewsHighlight({ data }: NewsHighlightProps) {
+
+    const highlight = data?.highlight_zone.find(res => res.__component === "blocks.highligh-post")
+    const highlightSide = data?.highlight_zone.find(res => res.__component === "blocks.highlight-side-post")
+
+
+
+    // const highlight = data?.highlight_zone.find(res => res.__component === "blocks.highligh-post")
+
+    console.log(highlightSide)
 
     return (
         <div className="grid grid-cols-2 gap-4 w-full ">
-            <section className="relative overflow-hidden h-[652px]">
-                <motion.div
-                    whileHover={{
-                        scale: 1.15,
-                        transition: { duration: 0.3 },
-                    }}
-                    className="h-full w-full "
-                >
-                    <Image
-                        src="/assets/img3.png"
-                        fill
-                        alt="Image"
-                    />
-                </motion.div>
+            <section className=" relative h-[652px] flex flex-col">
+
+                <PostHighlight post={highlight?.post[0]} />
             </section>
-            <section className="relative flex flex-col gap-4 h-[652px]" >
-                <div className=" overflow-hidden">
+            <section className="relative h-[652px] flex flex-col gap-4" >
+                {highlightSide?.post?.map(res => {
+                    return (
+                        <PostHighlight post={res} key={res.id} />
+                    )
+                })}
 
-                    <motion.div
-                        whileHover={{
-                            scale: 1.15,
-                            transition: { duration: 0.3 },
-                        }}
-                        className=" w-full h-full "
-                    >
-                        <Image
-                            src="/assets/img1.png"
-                            width={800}
-                            height={800}
-                            className="h-full w-full "
-                            alt="Image"
-
-                        />
-                    </motion.div>
-                </div>
-                <div className=" overflow-hidden">
-                    <motion.div
-                        whileHover={{
-                            scale: 1.15,
-                            transition: { duration: 0.3 },
-                        }}
-                        className="h-full w-full "
-                    >
-                        <Image
-                            src="/assets/img2.png"
-                            width={500}
-                            height={500}
-                            className="h-full w-full"
-                            alt="Image"
-                        />
-                    </motion.div>
-                </div>
             </section>
         </div>
     )
