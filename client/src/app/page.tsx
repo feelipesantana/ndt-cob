@@ -4,17 +4,24 @@ import { getHeaderData } from "@/api/get-header-data";
 import Image from "next/image";
 import { Slider } from '@/components/Slider';
 import { Button } from '@/components/ui/button';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Plus } from 'lucide-react';
+import { NewsHighlight } from '@/components/NewsHighlight';
 
 export default async function Home() {
 
   return (
-    <main className="h-full w-full  bg-neutral-20">
-      <div>
-        TEste
+    <main className="h-full w-full">
+      <div className='bg-neutral-20  pt-10 pb-20 '>
+        <div className='w-full max-w-[1280px] mx-auto flex flex-col items-center justify-center'>
+          <NewsHighlight />
+          <Button variant={'ghost'} className='flex items-center border-2 border-blue-default rounded-full mt-8 w-[272px] h-14 text-blue-default'>
+            <span>MAIS NOTÍCIAS </span><Plus className='mb-1' />
+          </Button>
+        </div>
       </div>
-      <div>
-        <h1 className='mt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default'>CANAL OLÍMPICO DO BRASIL</h1>
+
+      <div className=''>
+        <h1 className='pt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default'>CANAL OLÍMPICO DO BRASIL</h1>
         <div className='h-[880px] w-full bg-olympic-channel text-white flex items-center justify-center'>
           <div className='max-w-[1280px] w-full mx-auto pt-[11.2px] pb-[67px]'>
             <div className='max-w-[773px]'>
