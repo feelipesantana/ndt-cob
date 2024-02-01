@@ -5,9 +5,9 @@ interface HeaderLink {
     title: string;
 }
 
-export function HeaderLink({ url, title }) {
+export function HeaderLink({ url, title }: HeaderLink) {
     return (
-        <Link href="#" ><li>{title}</li></Link>
+        <Link href="#" className="text-lg transition duration-300 px-2 py-1 rounded-lg hover:bg-gray-200/70" ><li>{title}</li></Link>
 
     )
 }

@@ -24,10 +24,11 @@ export default async function Home() {
 
   const pageData = await getPagesData({ query: query })
   const highlightZoneAttributes = pageData?.data.find(res => res.attributes.title === "Home Page")
+  const colorPage = highlightZoneAttributes?.attributes.color_page
 
   return (
     <main className="h-full w-full">
-      <div className='bg-neutral-20  pt-10 pb-20 '>
+      <div style={{ backgroundColor: colorPage }} className='bg-neutral-20  pt-10 pb-20 '>
         <div className='w-full max-w-[1280px] mx-auto flex flex-col items-center justify-center'>
           {highlightZoneAttributes && <NewsHighlight data={highlightZoneAttributes?.attributes} />}
           <Button variant={'ghost'} className='flex items-center border-2 border-blue-default rounded-full mt-8 w-[272px] h-14 text-blue-default'>

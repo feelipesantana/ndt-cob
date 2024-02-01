@@ -13,12 +13,6 @@ export async function NewsHighlight({ data }: NewsHighlightProps) {
     const highlight = data?.highlight_zone.find(res => res.__component === "blocks.highligh-post")
     const highlightSide = data?.highlight_zone.find(res => res.__component === "blocks.highlight-side-post")
 
-
-
-    // const highlight = data?.highlight_zone.find(res => res.__component === "blocks.highligh-post")
-
-    console.log(highlightSide)
-
     return (
         <div className="grid grid-cols-2 gap-4 w-full ">
             <section className=" relative h-[652px] flex flex-col">

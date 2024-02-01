@@ -13,7 +13,6 @@ interface getPageDataProps{
 export async function getPagesData({query}:getPageDataProps ){
     try{
         const response = await api.get<RootObject>(`/pages?${query}`)
-
         return response.data
     }catch(err){
         console.error(err)

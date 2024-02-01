@@ -1,52 +1,28 @@
-'use client'
+
 import { getHeaderData } from "@/api/get-header-data"
-import { getClient } from "@/services/apollo-server";
-import directus from "@/services/directus-helper";
-import { gql } from "@apollo/client";
-import { createDirectus, rest } from '@directus/sdk';
-import { readItems } from '@directus/sdk';
-import Link from "next/link";
+
 import { HeaderLink } from "./HeaderLink";
 import Image from "next/image";
 
-// async function getGlobals() {
-//     const response = directus.request(readItems('header', {
-//         fields: ['id_links', 'color_header', { relation: ['*'] }],
-//     }
-//     ));
-//     return response
-// }
-
-// const GET_HEADER = gql`
-// {
-//     query{
-//         header{
-//             id_links
-//         }
-//     }
-// }
-// `
 
 export async function Header() {
 
-    // const getPageData = await getClient().query({ query })
+    const getHeader = await getHeaderData()
 
-    // const headerData = await getGlobals()
-
-    // console.log(headerData)
+    const color_header = getHeader?.data.attributes.color_header
 
     return (
-        <div className=" flex items-center justify-between  max-w-[1280px] w-full mx-auto">
-            <Image src="/assets/logo.svg" height={200} width={200} alt="Logo" />
+        <div style={{ backgroundColor: color_header ? color_header : '#FFFFFF' }} className=" flex items-center justify-between  ">
+            <div className="max-w-[1280px] w-full mx-auto h-full flex items-center justify-between">
+                <Image src="/assets/logo.svg" height={200} width={200} alt="Logo" />
 
-            <ul className="flex  gap-8">
-                <HeaderLink title="Time Brasil" url="" />
-                <HeaderLink title="Esportes" url="" />
-                <HeaderLink title="Eventos" url="" />
-                <HeaderLink title="Cultura Educação" url="" />
-                <HeaderLink title="Governança" url="" />
-            </ul>
+                <ul className="flex  gap-4">
+                    {getHeader?.data.attributes.link.map(res => {
+                        return <HeaderLink title={res.label} url={res.URL} key={res.id} />
+                    })}
 
+                </ul>
+            </div>
         </div>
     )
 }
