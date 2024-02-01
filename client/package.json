@@ -13,6 +13,7 @@
     "@apollo/experimental-nextjs-app-support": "^0.7.0",
     "@directus/sdk": "^14.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@vidstack/react": "^1.10.3",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

@@ -21,6 +21,20 @@ export interface PostTypes {
     __component: string;
     post:PostTypes[];
   }
+
+  interface Channel {
+    id: number;
+    title: string;
+    bg_color: string;
+    info: string;
+    description_info: string;
+    bg_image:{
+      data:{
+        id:number
+        url:string;
+      }
+    }
+  }
   
 
  export interface AttributesHighlightType {
@@ -32,6 +46,7 @@ export interface PostTypes {
     publishedAt: string;
     color_page: string;
     highlight_zone: HighLightZone[];
+    channel:Channel
 }
 
 export interface DataObjectType {
