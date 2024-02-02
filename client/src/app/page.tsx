@@ -1,10 +1,12 @@
 
 import qs from 'qs'
 import { Button } from '@/components/ui/button';
-import { PlayCircle, Plus } from 'lucide-react';
+
 import { NewsHighlight } from '@/components/NewsHighlight';
 import { getPagesData } from '@/api/get-pages-data';
-import { CarouselChannel } from '@/components/Carousel/CarouselChennel';
+
+import { Channel } from '@/components/Channel';
+import { Plus } from 'lucide-react';
 
 export default async function Home() {
   const query = qs.stringify({
@@ -41,26 +43,8 @@ export default async function Home() {
           </Button>
         </div>
       </div>
+      <Channel />
 
-      <div className=''>
-        <h1 className='pt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default'>{data?.attributes.channel.title}</h1>
-        <div className='h-[880px] w-full bg-olympic-channel text-white flex items-center justify-center'>
-          <div className='max-w-[1280px] w-full mx-auto pt-[11.2px] pb-[67px]'>
-            <div className='max-w-[773px]'>
-              <h1 className='text-[56px]  font-semibold leading-[67.2px]'>
-                {data?.attributes.channel.info}
-              </h1>
-              <h5 className='mt-4'>{data?.attributes.channel.description_info}</h5>
-              <Button className='bg-green-special mt-8 rounded-full px-2 py-1 text-slate-900 flex items-center gap-2'><PlayCircle /> Assita agora</Button>
-
-            </div>
-            <div className='mt-14'>
-              <h3 className='mb-6 ml-1'>Destaques</h3>
-              <CarouselChannel />
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
   );
 }

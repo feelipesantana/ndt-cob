@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { Header } from "@/components/Header";
 
 import "./globals.css";
+import { QueryProvider } from "@/providers/query-provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -47,14 +48,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${effra_trial.className}`}>
-
-        <div className="grid grid-rows-[96px,1fr] h-screen max-w-screen w-full">
-          <Header />
-          <div className="h-full ">
-            {children}
+        <QueryProvider>
+          <div className="grid grid-rows-[96px,1fr] h-screen max-w-screen w-full">
+            <Header />
+            <div className="h-full ">
+              {children}
+            </div>
           </div>
-        </div>
-
+        </QueryProvider>
       </body>
     </html>
   );
