@@ -34,6 +34,7 @@ export type GetYoutubeVideosResponse = {
 }
 
 export async function getYoutubeVideos(){
+    
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&chart=mostPopular&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`)
     const data:GetYoutubeVideosResponse = await response.json()
 

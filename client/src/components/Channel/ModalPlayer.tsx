@@ -10,7 +10,6 @@ import {
 import { Button } from "../ui/button"
 import { PlayCircle } from "lucide-react"
 import { VideoPlayer } from "./VideoPlayer"
-
 export function ModalPlayer() {
 
     return (
@@ -19,7 +18,7 @@ export function ModalPlayer() {
                 <PlayCircle /> Assita agora
             </DialogTrigger>
             <DialogContent
-                className=" flex justify-center items-center border-none  bg-black  w-full max-w-[100%] max-h-[100%]  my-0 py-0 rounded-none text-white">
+                className=" flex justify-center items-center border-none  bg-black  w-full max-w-[100%] max-h-[100%]  my-0 py-0  rounded-none text-white">
                 <VideoPlayer />
 
             </DialogContent>

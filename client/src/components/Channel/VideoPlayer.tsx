@@ -1,6 +1,7 @@
 import { requestAsyncStorage } from "next/dist/client/components/request-async-storage.external";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+    Gesture,
     MediaAutoPlayEvent,
     MediaAutoPlayEventDetail,
     MediaFullscreenChangeEvent,
@@ -12,6 +13,7 @@ import {
     PlayButton,
     Slider,
     SliderInstance,
+    Time,
     TimeSlider,
     TimeSliderInstance,
     useMediaState,
@@ -61,12 +63,12 @@ export function VideoPlayer() {
 
     useEffect(() => {
 
-        console.log(active)
+        console.log(playing)
         const sliderValue = Slider.Value;
 
-        console.log(sliderValue)
 
-    }, [isDragging])
+
+    }, [playing])
 
     return (
         <div className="p-0 m-0 flex ">
@@ -74,14 +76,14 @@ export function VideoPlayer() {
                 className="relative h-[36rem] max-w-[70rem]   flex justify-end flex-col">
                 <MediaProvider className="absolute h-full" />
 
-                <div className="  absolute z-10 w-full h-12  flex items-center px-2  bottom-2 gap-2">
+                <div className="  absolute z-10 w-full h-12  flex items-center px-2  bottom-2 gap-2  ">
                     <PlayButton
-                        className="text-white bg-gray-500/20 h-full w-10 rounded-md flex items-center justify-center"
+                        className="text-white bg-gray-500/20 h-full w-10 rounded-md flex items-center justify-center transition duration-200 hover:bg-gray-500/70"
                     >{playing ? <Pause /> : <Play />}</PlayButton>
 
 
 
-                    <div className="bg-gray-500/20 rounded-md p-1 w-full">
+                    <div className="bg-gray-500/20 rounded-md p-1 w-full flex items-center transition duration-200 hover:bg-gray-500/70">
                         <TimeSlider.Root ref={sliderRef} className="group   rounded-lg relative mx-[10px] inline-flex h-10 w-[90%] cursor-pointer touch-none select-none items-center outline-none aria-hidden:hidden">
                             <TimeSlider.Track className="relative ring-sky-400 z-0 h-[5px] w-full rounded-sm bg-white/30 group-data-[focus]:ring-[3px]">
                                 <TimeSlider.TrackFill className="bg-indigo-400 absolute h-full w-[var(--slider-fill)] rounded-sm will-change-[width]" />
@@ -89,9 +91,25 @@ export function VideoPlayer() {
                             </TimeSlider.Track>
                             <TimeSlider.Thumb className="absolute left-[var(--slider-fill)] top-1/2 z-20 h-[15px] w-[15px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#cacaca] bg-white opacity-0 ring-white/40 transition-opacity group-data-[active]:opacity-100 group-data-[dragging]:ring-4 will-change-[left]" />
                         </TimeSlider.Root>
-
+                        <div className="ml-1.5 flex items-center text-sm font-medium">
+                            <Time className="time" type="current" />
+                            <div className="mx-1 text-white/80">/</div>
+                            <Time className="time" type="duration" />
+                        </div>
                     </div>
+
                 </div>
+                <Gesture
+                    className="pointer-coarse:hidden absolute inset-0 z-0 block h-full w-full"
+                    event="pointerup"
+                    action="toggle:paused"
+                />
+
+                <Gesture
+                    className="absolute inset-0 z-0 block h-full w-full"
+                    event="dblpointerup"
+                    action="toggle:fullscreen"
+                />
 
             </MediaPlayer>
         </div>

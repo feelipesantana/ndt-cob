@@ -33,6 +33,7 @@ export function Channel() {
         queryFn: getYoutubeVideos
     })
 
+    console.log(youtube)
     const idPreSet = youtube?.items[0].id
     const imagePreSet = youtube?.items[0].snippet.thumbnails.maxres.url
     const titlePreSet = youtube?.items[0].snippet.title
@@ -44,11 +45,11 @@ export function Channel() {
             title: video.snippet.title,
             largeImage: video.snippet.thumbnails.maxres.url
         }
+        console.log(payload)
         if (payload) {
             setDataVideo(payload)
         }
     }
-
 
 
     return (
@@ -70,7 +71,7 @@ export function Channel() {
                             <h5 className='mt-4'>Desejo a todos os membros e torcedores um Natal repleto de alegria, paz e momentos especiais. Que este seja um período de confraternização, amor e união para todos. Boas festas!
                             </h5>
                             <div>
-                                <ModalPlayer />
+                                <ModalPlayer idPreset={idPreSet} />
                             </div>
                         </div>
                         <div className='mt-14'>
