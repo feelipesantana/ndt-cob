@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_blocks_channels",
+  "info": {
+    "displayName": "channel",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "bg_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bg_color": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "info": {
+      "type": "string",
+      "required": true
+    },
+    "description_info": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

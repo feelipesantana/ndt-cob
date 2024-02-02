@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_highligh_posts",
+  "info": {
+    "displayName": "Highlight Post",
+    "icon": "magic",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "post": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.post",
+      "required": true
+    }
+  }
+}

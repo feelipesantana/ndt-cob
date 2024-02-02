@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_highlight_side_post_s",
+  "info": {
+    "displayName": "Highlight Side Post ",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "post": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.post",
+      "max": 2
+    }
+  }
+}
