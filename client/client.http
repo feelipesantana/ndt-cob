@@ -1,9 +1,0 @@
-# GET http://localhost:1337/api/header?populate=*
-# Authorization:Bearer 8fbfe91d643dbd4292e421d437c6ecdbe8c0d5c25298f4c01116f09976d57bca852c9704655783e3cc07f692884e8731b248b4a1fe916c017ce2423f4214e107390b3701bbec0c3ce3bb480e71dc57221c55c0cf70f6e2723a876236a72a989d6fa284c110aa733b9941331a042cf307d965473a47f68140ad31bc29dce96c25
-
-# GET http://localhost:1337/api/pages?populate[channel][populate]=*
-# Authorization:Bearer 8fbfe91d643dbd4292e421d437c6ecdbe8c0d5c25298f4c01116f09976d57bca852c9704655783e3cc07f692884e8731b248b4a1fe916c017ce2423f4214e107390b3701bbec0c3ce3bb480e71dc57221c55c0cf70f6e2723a876236a72a989d6fa284c110aa733b9941331a042cf307d965473a47f68140ad31bc29dce96c25
-
-
-GET https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=AIzaSyCfGrULltGtnebRzxXu7CuifyG6hz69Utc
-//part=snippet&order=viewCount&q=skateboarding+do&type=video&videoDefinition=high
