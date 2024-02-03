@@ -20,7 +20,6 @@ export function ModalPlayer() {
             <DialogContent
                 className=" flex justify-center items-center border-none  bg-black  w-full max-w-[100%] max-h-[100%]  my-0 py-0  rounded-none text-white">
                 <VideoPlayer />
-
             </DialogContent>
         </Dialog >
     )

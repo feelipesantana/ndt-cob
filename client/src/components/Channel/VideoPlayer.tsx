@@ -61,15 +61,6 @@ export function VideoPlayer() {
         // if (playRequestEvent) setIsPlaying(false)
     }
 
-    useEffect(() => {
-
-        console.log(playing)
-        const sliderValue = Slider.Value;
-
-
-
-    }, [playing])
-
     return (
         <div className="p-0 m-0 flex ">
             <MediaPlayer ref={player} onPause={onPause} onPlay={onPlay} src={`https://www.youtube.com/watch?v=${dataVideo && dataVideo.id}`} autoPlay
@@ -79,9 +70,9 @@ export function VideoPlayer() {
                 <div className="  absolute z-10 w-full h-12  flex items-center px-2  bottom-2 gap-2  ">
                     <PlayButton
                         className="text-white bg-gray-500/20 h-full w-10 rounded-md flex items-center justify-center transition duration-200 hover:bg-gray-500/70"
-                    >{playing ? <Pause /> : <Play />}</PlayButton>
-
-
+                    >
+                        {playing ? <Pause /> : <Play />}
+                    </PlayButton>
 
                     <div className="bg-gray-500/20 rounded-md p-1 w-full flex items-center transition duration-200 hover:bg-gray-500/70">
                         <TimeSlider.Root ref={sliderRef} className="group   rounded-lg relative mx-[10px] inline-flex h-10 w-[90%] cursor-pointer touch-none select-none items-center outline-none aria-hidden:hidden">
@@ -104,13 +95,11 @@ export function VideoPlayer() {
                     event="pointerup"
                     action="toggle:paused"
                 />
-
                 <Gesture
                     className="absolute inset-0 z-0 block h-full w-full"
                     event="dblpointerup"
                     action="toggle:fullscreen"
                 />
-
             </MediaPlayer>
         </div>
     )
