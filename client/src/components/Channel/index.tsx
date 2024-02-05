@@ -35,13 +35,11 @@ export function Channel() {
             <h1 className='pt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default '>
                 CANAL OLÍMPICO DO BRASIL
             </h1>
-
-
             <motion.div
                 key={dataVideo?.largeImage}
                 style={{ backgroundImage: `url(${dataVideo?.largeImage})`, }}
-                initial={{ opacity: 0.5, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }} // Animate opacity to 1
+                initial={{ opacity: 0.9 }}
+                animate={{ opacity: 1 }} // Animate opacity to 1
                 className='bg-cover dynamic-block h-[880px] w-full   text-white flex items-center justify-center'>
                 <div className="bg-black/70 w-full h-full flex items-center justify-center">
                     <div className='max-w-[1280px] w-full mx-auto pt-[11.2px] '>

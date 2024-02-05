@@ -28,7 +28,7 @@ export function VideoItem({ video }: VideoItem) {
     }
 
     return (
-        <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/5">
+        <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/4 cursor-pointer">
             <div style={{ backgroundImage: `url(${thamab.url})` }} className="h-36 bg-cover flex items-end justify-end" onClick={() => handleChooseVideo(video)}>
                 <span className="text-white text-base font-medium leading-5 bg-black/60 p-1" >{formattedDuration}</span>
             </div>

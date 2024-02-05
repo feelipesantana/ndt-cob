@@ -48,14 +48,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${effra_trial.className}`}>
-        <QueryProvider>
-          <div className="grid grid-rows-[96px,1fr] h-screen max-w-screen w-full">
-            <Header />
-            <div className="h-full ">
+
+        <div className="grid grid-rows-[96px,1fr] h-screen max-w-screen w-full">
+          <Header />
+          <div className="h-full ">
+            <QueryProvider>
               {children}
-            </div>
+            </QueryProvider>
           </div>
-        </QueryProvider>
+        </div>
+
       </body>
     </html>
   );

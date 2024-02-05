@@ -52,7 +52,7 @@ interface LogoFormat {
     locale: string;
     color_header: string | null;
     logo: {
-      data: LogoData[];
+      data: LogoData;
     };
     link: Link[];
     localizations: {
