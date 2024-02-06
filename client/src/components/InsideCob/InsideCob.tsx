@@ -52,7 +52,7 @@ export function InsideCob() {
 
 
                         </Carousel>
-                        <div className="py-2 text-center text-sm text-muted-foreground">
+                        {/* <div className="py-2 text-center text-sm text-muted-foreground">
 
                             {Number(count)}
                             <div className="w-10 h-2 bg-blue-default rounded-lg" ></div>
@@ -68,7 +68,7 @@ export function InsideCob() {
                                     />
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
