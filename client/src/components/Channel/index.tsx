@@ -8,6 +8,7 @@ import { ModalPlayer } from "./ModalPlayer";
 import { useVideoHook } from "@/hooks/useVideoHook";
 import { VideoItem } from "./VideoItems";
 import { GetYoutubeVideosResponse, getVideosDetails } from "@/api/get-videos-details"
+import { Skeleton } from "../ui/skeleton";
 
 
 interface ChannelProps {
@@ -39,7 +40,7 @@ export function Channel({ videosId }: ChannelProps) {
             <h1 className='pt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default '>
                 CANAL OLÍMPICO DO BRASIL
             </h1>
-            {dataVideo &&
+            {youtube ?
                 <motion.div
                     key={dataVideo?.largeImage}
                     style={{ backgroundImage: `url(${dataVideo?.largeImage})`, }}
@@ -77,7 +78,9 @@ export function Channel({ videosId }: ChannelProps) {
                         </div>
                     </div>
                 </motion.div>
-            }
+                : <div>
+                    <Skeleton className="w-full bg-gray-500 h-[880px] rounded-lg" />
+                </div>}
         </div >
     )
 }
