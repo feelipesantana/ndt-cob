@@ -8,3 +8,8 @@ export const api = axios.create({
         Authorization: `Bearer ${env.NEXT_PUBLIC_TOKEN}`
     }
 })
+
+export const apiYoutube = axios.create({
+    baseURL: env.NEXT_PUBLIC_YOUTUBE_API_URL,
+})
+

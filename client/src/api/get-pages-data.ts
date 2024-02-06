@@ -18,5 +18,4 @@ export async function getPagesData({query}:getPageDataProps ){
         console.error(err)
         return null
     }
-    
 }

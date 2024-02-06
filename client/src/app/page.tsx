@@ -7,6 +7,10 @@ import { getPagesData } from '@/api/get-pages-data';
 
 import { Channel } from '@/components/Channel';
 import { Plus } from 'lucide-react';
+import { getVideosByChannel } from '@/api/get-videos-by-channel';
+import { Carousel, CarouselContent, CarouselNext, CarouselPrevious } from '@/components/ui/carousel-channel';
+import { Card, CardContent } from '@/components/ui/card';
+import { InsideCob } from '@/components/InsideCob/InsideCob';
 
 export default async function Home() {
   const query = qs.stringify({
@@ -33,6 +37,13 @@ export default async function Home() {
   const data = pageData?.data.find(res => res.attributes.title === "Home Page")
   const colorPage = data?.attributes.color_page
 
+
+  // const videosByChannel = await getVideosByChannel();
+
+
+  // const videosId = videosByChannel?.items.map(res => res.id.videoId)
+
+
   return (
     <main className="h-full w-full">
       <div style={{ backgroundColor: colorPage }} className='bg-neutral-20  pt-10 pb-20 '>
@@ -44,6 +55,7 @@ export default async function Home() {
         </div>
       </div>
       <Channel />
-    </main>
+      <InsideCob />
+    </main >
   );
 }

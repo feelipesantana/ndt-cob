@@ -2,17 +2,11 @@ import { requestAsyncStorage } from "next/dist/client/components/request-async-s
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
     Gesture,
-    MediaAutoPlayEvent,
-    MediaAutoPlayEventDetail,
-    MediaFullscreenChangeEvent,
     MediaPlayer,
     MediaPlayerInstance,
-    MediaPlayerQuery,
     MediaPlayEvent,
     MediaProvider,
     PlayButton,
-    Slider,
-    SliderInstance,
     Time,
     TimeSlider,
     TimeSliderInstance,
@@ -23,11 +17,6 @@ import {
 
 import '@vidstack/react/player/styles/base.css';
 
-import {
-    DefaultAudioLayout,
-    defaultLayoutIcons,
-    DefaultVideoLayout,
-} from '@vidstack/react/player/layouts/default';
 import { Pause, Play } from "lucide-react";
 import { useVideoHook } from "@/hooks/useVideoHook";
 export function VideoPlayer() {

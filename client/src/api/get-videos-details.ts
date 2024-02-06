@@ -33,10 +33,24 @@ export type GetYoutubeVideosResponse = {
     
 }
 
-export async function getYoutubeVideos(){
+
+interface getVideosDetailsProps{
+    videosId?: string[] 
+}
+
+export async function getVideosDetails({videosId}:getVideosDetailsProps){
+    let ids = "";
+
+    videosId?.forEach(element => {
+        ids = ids.concat(`&id=${element}`)
+    })
+    console.log(ids)
     
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&chart=mostPopular&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`)
+    const query = `part=snippet%2CcontentDetails&chart=mostPopular&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`
+    
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?${query}`)
     const data:GetYoutubeVideosResponse = await response.json()
     
+    console.log(data)
     return data
 }
