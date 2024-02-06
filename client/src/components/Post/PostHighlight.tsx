@@ -17,8 +17,6 @@ export function PostHighlight({ post }: PostHighlightProps) {
         return `${process.env.NEXT_PUBLIC_API_URL}${imagePostUrl}?w=${800}&q=${quality || 75}`
     }
 
-    console.log(imageLoader())
-    console.log()
     return (
 
         <div className="relative overflow-hidden w-full h-full flex items-end rounded-lg" >
