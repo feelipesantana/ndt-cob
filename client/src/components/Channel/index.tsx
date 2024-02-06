@@ -37,7 +37,7 @@ export function Channel({ videosId }: ChannelProps) {
     console.log(youtube)
     return (
         <div>
-            <h1 className='pt-32 mb-14 text-6xl leading-[83.2px] font-semibold text-center text-blue-default '>
+            <h1 className='pt-32 mb-14 text-6xl  leading-[83.2px] font-semibold text-center text-blue-default '>
                 CANAL OLÍMPICO DO BRASIL
             </h1>
             {youtube ?

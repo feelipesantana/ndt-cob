@@ -1,6 +1,7 @@
 'use client'
 
 import { PostTypes } from '@/types/get-page-data-types'
+import { env } from '@/utils/env'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -13,8 +14,11 @@ export function PostHighlight({ post }: PostHighlightProps) {
     const quality = 75
 
     const imageLoader = () => {
-        return `http://localhost:1337${imagePostUrl}?w=${800}&q=${quality || 75}`
+        return `${process.env.NEXT_PUBLIC_API_URL}${imagePostUrl}?w=${800}&q=${quality || 75}`
     }
+
+    console.log(imageLoader())
+    console.log()
     return (
 
         <div className="relative overflow-hidden w-full h-full flex items-end rounded-lg" >
